@@ -24,9 +24,9 @@ class Result
      *  2. INTEGER_ARRAY b
      */
 
-    public static List<int> compareTriplets(List<int> a,        List<int> b)
+    public static List<int> compareTriplets(List<int> a, List<int> b)
     {
-               List<int> result = new List<int>
+        List<int> result = new List<int>
         {
             0,
             0
