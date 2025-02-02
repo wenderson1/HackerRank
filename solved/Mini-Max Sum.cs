@@ -21,7 +21,7 @@ class Result
      * The function accepts INTEGER_ARRAY arr as parameter.
      */
 
-    public static void miniMaxSum(List<int> arr)
+    public static void miniMaxSum(List<Int64> arr)
     {
         if(arr.Count() != 5)
         {
@@ -29,15 +29,14 @@ class Result
             return;
         }
 
-        List<Int128> sums = new List<Int128>();
-        foreach(Int128 i in arr)
+        List<Int64> sums = new List<Int64>();
+        foreach(Int64 i in arr)
         {
             sums.Add(arr.Sum() - i);
         }
 
         System.Console.WriteLine(sums.Min() + " " + sums.Max());
     }
-
 }
 
 class Solution

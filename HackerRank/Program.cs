@@ -11,39 +11,42 @@ using System.Runtime.Serialization;
 using System.Text.RegularExpressions;
 using System.Text;
 using System;
+using System.Numerics;
 
 class Result
 {
 
     /*
-     * Complete the 'plusMinus' function below.
+     * Complete the 'miniMaxSum' function below.
      *
      * The function accepts INTEGER_ARRAY arr as parameter.
      */
 
-    public static void plusMinus(List<int> arr)
+    public static void miniMaxSum(List<Int64> arr)
     {
-        var result = new List<decimal>();
-        result.Add(Math.Round((arr.Count(x => x > 0)/(decimal)arr.Count),  6));
-        result.Add(Math.Round((arr.Count(x => x < 0)/(decimal)arr.Count),  6));
-        result.Add(Math.Round((arr.Count(x => x == 0)/(decimal)arr.Count),  6));
-
-        foreach (var item in result)
+        if(arr.Count() != 5)
         {
-            Console.WriteLine(item);
+            Console.WriteLine(string.Empty);
+            return;
         }
-    }
 
+        List<Int64> sums = new List<Int64>();
+        foreach(Int64 i in arr)
+        {
+            sums.Add(arr.Sum() - i);
+        }
+
+        System.Console.WriteLine(sums.Min() + " " + sums.Max());
+    }
 }
 
 class Solution
 {
     public static void Main(string[] args)
     {
-        int n = Convert.ToInt32(Console.ReadLine().Trim());
 
-        List<int> arr = Console.ReadLine().TrimEnd().Split(' ').ToList().Select(arrTemp => Convert.ToInt32(arrTemp)).ToList();
+        List<Int64> arr = Console.ReadLine().TrimEnd().Split(' ').ToList().Select(arrTemp => Convert.ToInt64(arrTemp)).ToList();
 
-        Result.plusMinus(arr);
+        Result.miniMaxSum(arr);
     }
 }
