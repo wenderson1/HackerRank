@@ -1,4 +1,4 @@
-﻿using System.CodeDom.Compiler;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Collections;
 using System.ComponentModel;
@@ -25,14 +25,17 @@ class Result
     public static int birthdayCakeCandles(List<int> candles)
     {
         int max = candles.Max();
-    	return candles.Count(x => x == max);
+        return candles.Count(x => x == max);
+
     }
 
 }
 
 class Solution
-{   public static void Main(string[] args)
+{
+    public static void Main(string[] args)
     {
+        TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
 
         int candlesCount = Convert.ToInt32(Console.ReadLine().Trim());
 
@@ -40,6 +43,9 @@ class Solution
 
         int result = Result.birthdayCakeCandles(candles);
 
-        Console.WriteLine(result);	
-        }
+        textWriter.WriteLine(result);
+
+        textWriter.Flush();
+        textWriter.Close();
+    }
 }
